@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy New Year 🎆</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #020024, #090979, #000);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  text-align: center;
+}
+
+/* Main card */
+.container {
+  padding: 40px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 40px rgba(255, 215, 0, 0.3);
+  animation: fadeIn 2s ease;
+  z-index: 2;
+}
+
+/* Animated gradient text */
+h1 {
+  font-size: 3.2rem;
+  background: linear-gradient(90deg, gold, #ff6a00, gold);
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s infinite;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  opacity: 0.9;
+}
+
+p {
+  font-size: 1.1rem;
+  opacity: 0.85;
+}
+
+.signature {
+  margin-top: 25px;
+  font-size: 0.95rem;
+  opacity: 0.7;
+}
+
+/* Animations */
+@keyframes shimmer {
+  0% { background-position: 0%; }
+  100% { background-position: 200%; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Fireworks */
+.firework {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  animation: explode 1.5s ease-out forwards;
+}
+
+@keyframes explode {
+  0% { transform: scale(0); opacity: 1; }
+  100% { transform: scale(18); opacity: 0; }
+}
+
+/* Floating particles */
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: white;
+  opacity: 0.6;
+  animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(100vh); }
+  to { transform: translateY(-10vh); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>🎆 Happy New Year 2026 🎆</h1>
+  <h2>Wishing You Joy, Success & Happiness</h2>
+  <p>May this year bring new opportunities ✨</p>
+
+  <div class="signature">
+    By <br> Code with Santhosh 💻
+  </div>
+</div>
+
+<script>
+// Fireworks
+function createFirework() {
+  const firework = document.createElement("div");
+  firework.className = "firework";
+  firework.style.left = Math.random() * 100 + "vw";
+  firework.style.top = Math.random() * 100 + "vh";
+  firework.style.background =
+    ["gold", "red", "cyan", "lime", "pink"][Math.floor(Math.random() * 5)];
+  document.body.appendChild(firework);
+  setTimeout(() => firework.remove(), 1500);
+}
+setInterval(createFirework, 400);
+
+// Floating particles
+function createParticle() {
+  const p = document.createElement("div");
+  p.className = "particle";
+  p.style.left = Math.random() * 100 + "vw";
+  p.style.animationDuration = 3 + Math.random() * 5 + "s";
+  document.body.appendChild(p);
+  setTimeout(() => p.remove(), 6000);
+}
+setInterval(createParticle, 200);
+</script>
+
+</body>
+</html>
